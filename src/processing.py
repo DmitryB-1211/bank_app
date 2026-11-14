@@ -1,0 +1,11 @@
+def filter_by_state(items: list, state='EXECUTED'):
+    '''Функция принимает список словарей
+    и фильтрует по заданному значению state 'EXECUTED' или 'CANCELED' '''
+
+    new_list = []
+    for i in items:
+        if i.get('state') == state:
+            new_list.append(i)
+    return new_list
+
+
