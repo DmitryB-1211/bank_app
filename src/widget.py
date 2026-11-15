@@ -1,7 +1,7 @@
 from masks import get_mask_card_number, get_mask_account
 
 
-def mask_account_card(my_card: str):
+def mask_account_card(my_card: str) -> str:
     """Функция, обрабатывающая информацию о картах и о счетах"""
     card_in_parts = my_card.split(" ")
     number = card_in_parts[-1]
@@ -20,7 +20,7 @@ def mask_account_card(my_card: str):
     return f"{name} {get_mask_card_number(number)}"
 
 
-def get_date(data: str):
+def get_date(data: str) -> str:
     """Функция, которая принимает на вход строку с датой в формате
     '2024-03-11T02:26:18.671407' и возвращает строку
     с датой в формате 'ДД.ММ.ГГГГ'"""
