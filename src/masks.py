@@ -18,7 +18,7 @@ def get_mask_account(name_card: str) -> str:
     #проверка входных данных
     if not isinstance(name_card, str):
         raise TypeError("name должен быть строкой")
-    if len(name_card) != 16 or name_card == "":
-        raise ValueError("количество цифр должно быть 16")
+    if len(name_card) != 20 or name_card == "":
+        raise ValueError("количество цифр должно быть 20")
 
     return "**" + name_card[-4:]
