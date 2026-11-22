@@ -1,5 +1,4 @@
-from masks import get_mask_card_number, get_mask_account
-
+from src.masks import get_mask_card_number, get_mask_account
 
 def mask_account_card(my_card: str) -> str:
     """Функция, обрабатывающая информацию о картах и о счетах"""
@@ -9,9 +8,9 @@ def mask_account_card(my_card: str) -> str:
 
     # защита от некорректного ввода:
     if len(card_in_parts) < 2:
-        return "не корректный номер карты"
-    if len(number) != 16 and len(number) != 20:
-        return "не корректный номер карты"
+        raise ValueError("нет пробела")
+    if not number.isdigit():
+        raise TypeError("number должен быть числовой")
 
     # релизация функции
     if "счет" in name.lower() or "счёт" in name.lower():
@@ -24,4 +23,12 @@ def get_date(data: str) -> str:
     """Функция, которая принимает на вход строку с датой в формате
     '2024-03-11T02:26:18.671407' и возвращает строку
     с датой в формате 'ДД.ММ.ГГГГ'"""
+
+    if data == '':
+        raise ValueError("некорректный ввод")
+
+    if not isinstance(data, str):
+        raise TypeError("name должен быть строкой")
+
     return data[8:10] + "." + data[5:7] + "." + data[0:4]
+
